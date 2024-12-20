@@ -1,0 +1,89 @@
+.header {
+    padding-top: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    animation-name: slideTopIn;
+    animation-duration: 2s;
+}
+
+.contentContainer {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 800px;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.connectBox {
+    width: 100px;
+    height: 100px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    transition: transform 2s ease;
+    animation-name: slideBottomIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.icon:hover {
+    filter: drop-shadow(0px 0px 1px black);
+}
+
+.jump {
+    height: 80px;
+}
+
+.icon-instagram {
+    color: #e4405f; /* Instagram 색상 */
+    animation-delay: 0s;
+}
+
+.icon-facebook {
+    color: #4267B2; /* Facebook 색상 */
+    animation-delay: 0.5s;
+}
+
+.icon-google {
+    color: #DB4437; /* Google 색상 */
+    animation-delay: 1.0s;
+}
+
+.icon-n {
+    color: #4CAF50; /* Custom 색상 */
+    animation-delay: 1.5s;
+}
+
+.icon-phone {
+    color: gray; /* Phone 색상 */
+    animation-delay: 2s;
+}
+
+@keyframes slideTopIn {
+    from {
+        transform: translateY(-40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideBottomIn {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

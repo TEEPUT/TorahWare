@@ -1,0 +1,23 @@
+.container {
+    overflow: hidden;
+}
+
+.contentContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.jump {
+    height: 130px;
+}
+
+.semijump {
+    height: 70px;
+}
+
+.devider {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}

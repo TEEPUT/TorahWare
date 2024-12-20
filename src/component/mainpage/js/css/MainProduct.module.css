@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    max-width: 900px;
+    align-items: center;
+    position: relative;
+}
+
+.reviewBox1 {
+    width: 450px;
+    height: 350px;
+    animation-duration: 3s;
+    animation-name: fadeIn;
+    box-shadow: 0px 0px 22px gray;
+    object-fit: cover;
+    object-position: center;
+}
+
+.reviewBox2 {
+    position: absolute;
+    margin-left: 460px;
+    margin-top: 250px;
+    width: 200px;
+    height: auto;
+    z-index: 3;
+    animation-duration: 4s;
+    animation-name: fadeIn;
+}
+
+.header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    animation-name: slideTopIn;
+    animation-duration: 2s;
+}
+
+.semijump {
+    height: 50px;
+}
+
+.blurbox {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    margin-left: 380px;
+    margin-top: 230px;
+    border-radius: 10px;
+    z-index: 2;
+    background-color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideTopIn {
+    from {
+        transform: translateY(-40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

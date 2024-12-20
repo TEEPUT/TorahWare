@@ -1,0 +1,46 @@
+.semiJump {
+    height: 50px;
+}
+
+.jump {
+    height: 150px;
+}
+
+.PRContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.pressContainer {
+    width: 250px;
+    height: 400px;
+    margin-top: 30px;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.pressImage {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+@keyframes slideBottomIn {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

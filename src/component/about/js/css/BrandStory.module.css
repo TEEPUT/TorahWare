@@ -1,0 +1,75 @@
+.semiJump {
+    height: 50px;
+}
+
+.jump {
+    height: 150px;
+}
+
+.title {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.subTitle {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.BSContentsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    line-height: 2;
+}
+
+.BSImage, .BSText {
+    width: 50%;
+    height: 200px;
+    object-fit: contain;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.BSImage {
+    margin: 80px 0;
+}
+
+.BSTitleOuttro {   
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.BSImageOuttro {
+    width: 90%;
+    height: 400px;
+    object-fit: contain;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+    padding: 0px 5%;
+}
+
+.titleText {
+    font-size: 20px;
+}
+
+.contentText, .contentText li {
+    font-size: 13px;
+}
+
+@keyframes slideBottomIn {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

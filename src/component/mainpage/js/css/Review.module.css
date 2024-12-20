@@ -1,0 +1,59 @@
+.container {
+    color: white;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    opacity: 0.8;
+    background-image: url('/public/image/2699f322-03ba-4c6b-ad9d-1cae6a5691e9.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 382px;
+}
+
+.blur { 
+    position: absolute;
+    height: 382px;
+    width: 100%;
+    background-color: black;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.header {
+    padding-top: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    animation-name: slideTopIn;
+    animation-duration: 2s;
+}
+
+.maxbox {
+    margin: 30px auto;
+    max-width: 800px;
+    padding-bottom: 30px;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideTopIn {
+    from {
+        transform: translateY(-40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,71 @@
+.semiJump {
+    height: 50px;
+}
+
+.jump {
+    height: 150px;
+}
+
+.title {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.subTitle {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.HContainer {
+    max-width: 800px;
+    width: 100%;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.HLine {
+    border: 2px solid gray;
+    position: absolute;
+    margin: 0 auto;
+    height: 850px;
+    top: 1130px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.HImage, .HText {
+    width: 40%;
+    margin: 0 5%;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.HText {
+    padding: 70px 0px;
+    height: 160px;
+    
+}
+
+.HImage {
+    height: 200px;
+    object-fit: cover;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@keyframes slideBottomIn {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

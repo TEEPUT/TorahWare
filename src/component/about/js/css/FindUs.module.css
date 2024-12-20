@@ -1,0 +1,48 @@
+.semiJump {
+    height: 50px;
+}
+
+.jump {
+    height: 150px;
+}
+
+.title {
+    text-align: center;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+
+.FUContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
+.map {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 400px;
+}
+
+.info {
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes slideBottomIn {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
