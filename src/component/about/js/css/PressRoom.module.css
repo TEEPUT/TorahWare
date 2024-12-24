@@ -33,6 +33,18 @@
     animation-duration: 3s;
 }
 
+.pressNo {
+    border: 4px dashed gray;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 100px 0px;
+    font-family: "KyoboHand";
+    font-size: 30px;
+    animation-name: slideBottomIn;
+    animation-duration: 3s;
+}
+
 @keyframes slideBottomIn {
     from {
         transform: translateY(40%);

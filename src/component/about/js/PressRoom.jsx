@@ -8,7 +8,8 @@ export default function PressRoom() {
             <div className={style.semiJump}></div>
             <h1 className={style.title}>Press Room</h1>
             <div className={style.PRContainer}>
-                <div className={style.pressContainer}>
+                <div className={style.pressNo}>현재 해당 섹션은 비어있습니다.</div>
+                {/* <div className={style.pressContainer}>
                     <img src="/image/image.png" className={style.pressImage}></img>
                     <p className={style.pressContents}>HeadLine : Lorem ipsum dolor</p>
                     <p className={style.pressContents}>Date : 2024.12.02</p>
@@ -74,7 +75,7 @@ export default function PressRoom() {
                     <p className={style.pressContents}>HeadLine : Lorem ipsum dolor</p>
                     <p className={style.pressContents}>Date : 2024.12.02</p>
                     <p className={style.pressContents}>Contents : Lorem ipsum dolor...</p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

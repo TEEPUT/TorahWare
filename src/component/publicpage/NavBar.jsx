@@ -112,7 +112,7 @@ const NavBar = ({ title, sections = [] }) => {
               <div className={styles.overlay_content}>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
-                <NavLink to="/shop">Shop</NavLink>
+                <NavLink to="/project">Project</NavLink>
                 <NavLink to="/communication">Communication</NavLink>
                 {username ? (
                   <NavLink onClick={handleLogout} className={styles.logout} to="/login">Logout</NavLink>

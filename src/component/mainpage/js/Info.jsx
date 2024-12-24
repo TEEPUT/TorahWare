@@ -5,16 +5,16 @@ export default function Info() {
     const [counts, setCounts] = useState([0, 0, 0, 0]); // 초기값 0
 
     // 목표 값, 제목, 단위 설정
-    const targetCounts = [2013, 19, 81, 100];
+    const targetCounts = [2013, 18, 82, 100];
     const titles = ["설립 연도", "직원 수", "성공한 프로젝트", "성공률"];
     const units = ["년", "명", "개", "%"];
 
     useEffect(() => {
         // 숫자를 점진적으로 증가시키는 함수
         const animateCounts = () => {
-            const duration = 4000; // 애니메이션 지속 시간 (ms)
-            const frameRate = 60; // 초당 프레임
-            const totalFrames = Math.round((duration / 1000) * frameRate); // 총 프레임 수
+            const duration = 3000; // 애니메이션 지속 시간 (ms)
+            const frameRate = 51; // 초당 프레임
+            const totalFrames = Math.round((duration / 800) * frameRate); // 총 프레임 수
             const increments = targetCounts.map(target => target / totalFrames); // 프레임당 증가량
 
             let frame = 0;
