@@ -13,7 +13,7 @@ export default function Up() {
         <div>
             {/* 클릭 이벤트 추가 */}
             <img
-                src='/image/image.png'
+                src='/image/free-icon-up-14984331.png'
                 className={style.up}
                 alt="Scroll to top"
                 onClick={scrollToTop} // 클릭 시 scrollToTop 호출

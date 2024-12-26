@@ -1,24 +1,52 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Navigate 추가
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import style from './css/Login.module.css';
 
 export default function Login({ onLogin }) {
-    const [isSignUp, setIsSignUp] = useState(false); // 회원가입 상태 관리
-    const [username, setUsername] = useState(''); // 사용자 이름 상태 관리
-    const navigate = useNavigate(); // 라우팅을 위한 훅
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const navigate = useNavigate(); 
 
     const toggleMode = () => {
         setIsSignUp(!isSignUp); // 상태 변경 (로그인 <-> 회원가입)
     };
 
-    const handleLogin = () => {
-        if (username) {
-            // 로그인 성공 처리
-            localStorage.setItem('username', username); // 세션 저장
-            onLogin(username); // App.js에서 로그인 상태 업데이트
-            navigate('/'); // 홈 화면으로 이동
-        } else {
-            alert('Please enter your username');
+    const handleLogin = async () => {
+        if (!username || !password) {
+            alert('아이디와 비밀번호를 입력해주세요.');
+            return;
+        }
+
+        try {
+            const response = isSignUp
+                ? await axios.post('http://localhost:39090/api/user/insert', {
+                      username,
+                      password,
+                      email,
+                  })
+                : await axios.post('http://localhost:39090/api/user/select', {
+                      username,
+                      password,
+                  });
+
+            if (response.status === 200) {
+                const token = response.data.token;
+                const message = isSignUp ? '회원가입 성공!' : '로그인 성공!';
+                alert(message);
+                if (!isSignUp) {
+                    localStorage.setItem('username', token);
+                    navigate('/');
+                } else {
+                    setIsSignUp(false); 
+                }
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            const errorMessage = error.response?.data?.message || '오류가 발생했습니다.';
+            alert(errorMessage);
         }
     };
 
@@ -30,9 +58,9 @@ export default function Login({ onLogin }) {
                 window.Kakao.API.request({
                     url: '/v2/user/me',
                     success: (res) => {
-                        const kakaoUsername = res.properties.nickname; // 사용자 이름 가져오기
-                        localStorage.setItem('username', kakaoUsername); // 세션 저장
-                        navigate('/'); // 홈 화면으로 이동
+                        const kakaoUsername = res.properties.nickname;
+                        localStorage.setItem('username', kakaoUsername);
+                        navigate('/');
                     },
                     fail: (err) => {
                         console.error('User Info Fetch Error:', err);
@@ -50,21 +78,21 @@ export default function Login({ onLogin }) {
             <div className={style.loginContainer}>
                 {/* 회원가입 */}
                 <div className={style.signInContainer}>
-                    <h2 className={style.signTitle}>Welcome Back!</h2>
-                    <img src='/image/image.png' className={style.signInImage} />
-                    <p>Have an account?</p>
+                    <h2 className={style.signTitle}>어서오세요!</h2>
+                    <img src='/image/360_F_523040057_JYMTxoQGquklUthNLLjspI7ldR1hrFlH.jpg' className={style.signInImage} />
+                    <p>계정이 있으신가요?</p>
                     <button className={style.btn} onClick={toggleMode}>
-                        Login
+                        로그인
                     </button>
                 </div>
 
                 {/* 로그인 */}
                 <div className={style.signUpContainer}>
-                    <h2 className={style.signTitle}>Join Us!</h2>
-                    <img src='/image/image.png' className={style.signInImage} />
-                    <p>Don't have an account?</p>
+                    <h2 className={style.signTitle}>저희랑 함께하세요!</h2>
+                    <img src='/image/360_F_557636016_qBt5q3am5gWN7ubTEdOv4AXsDbew4qFc.jpg' className={style.signInImage} />
+                    <p>계정이 없으신가요?</p>
                     <button className={style.btn} onClick={toggleMode}>
-                        Register
+                        회원가입
                     </button>
                 </div>
 
@@ -74,46 +102,50 @@ export default function Login({ onLogin }) {
                         isSignUp ? style.signUpMode : style.signInMode
                     }`}
                 >
-                    <h2 className={style.title}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
+                    <h2 className={style.title}>{isSignUp ? '가입하기' : '로그인'}</h2>
                     <input
                         type='text'
-                        placeholder={isSignUp ? 'New Username' : 'Username'}
+                        placeholder='아이디'
                         className={style.inputBox}
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     <input
                         type='password'
-                        placeholder={isSignUp ? 'New Password' : 'Password'}
+                        placeholder='패스워드'
                         className={style.inputBox}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {isSignUp && (
                         <>
                             <input
                                 type='password'
-                                placeholder='Confirm Password'
+                                placeholder='패스워드 확인'
                                 className={style.inputBox}
                             />
                             <input
                                 type='email'
-                                placeholder='Email Address'
+                                placeholder='이메일'
                                 className={style.inputBox}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </>
                     )}
                     <button className={style.btn} onClick={handleLogin}>
-                        {isSignUp ? 'Register' : 'Login'}
+                        {isSignUp ? '회원가입' : '로그인'}
                     </button>
 
                     {/* 카카오 로그인 버튼 */}
                     {!isSignUp && (
                         <>
-                        <button
-                            className={`${style.btn} ${style.kakaoBtn}`}
-                            onClick={handleKakaoLogin}
-                        >
-                            Login with Kakao
-                        </button>
+                            <button
+                                className={`${style.btn} ${style.kakaoBtn}`}
+                                onClick={handleKakaoLogin}
+                            >
+                                카카오로 로그인
+                            </button>
                         </>
                     )}
                 </div>

@@ -48,6 +48,11 @@
     height: 150px;
 }
 
+.active {
+    font-weight: bold;
+    color: rgb(30, 148, 250)
+}
+
 
 @keyframes zoomEffect {
     0% {
