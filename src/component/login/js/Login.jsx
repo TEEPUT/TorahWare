@@ -8,6 +8,8 @@ export default function Login({ onLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [nickname, setNickname] = useState('');
     const navigate = useNavigate(); 
 
     const toggleMode = () => {
@@ -26,6 +28,8 @@ export default function Login({ onLogin }) {
                       username,
                       password,
                       email,
+                      name,
+                      nickname,
                   })
                 : await axios.post('http://localhost:39090/api/user/select', {
                       username,
@@ -34,7 +38,7 @@ export default function Login({ onLogin }) {
 
             if (response.status === 200) {
                 const token = response.data.token;
-                const message = isSignUp ? '회원가입 성공!' : '로그인 성공!';
+                const message = isSignUp ? response.data.msg : response.data.msg;
                 alert(message);
                 if (!isSignUp) {
                     localStorage.setItem('username', token);
@@ -130,6 +134,20 @@ export default function Login({ onLogin }) {
                                 className={style.inputBox}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <input
+                                type='text'
+                                placeholder='성함'
+                                className={style.inputBox}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <input
+                                type='text'
+                                placeholder='닉네임'
+                                className={style.inputBox}
+                                value={nickname}
+                                onChange={(e) => setNickname(e.target.value)}
                             />
                         </>
                     )}

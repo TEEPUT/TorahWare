@@ -18,7 +18,7 @@ export default function AboutPage() {
     { id: '', name: '' },
   ];
 
-  const [activeSection, setActiveSection] = useState("Brand Story"); // 현재 활성화된 섹션
+  const [activeSection, setActiveSection] = useState("Brand Story");
 
   const renderSectionContent = () => {
     switch (activeSection) {
