@@ -1,0 +1,49 @@
+.background {
+    background-color: #131417;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.container {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 12%;
+    padding: 20px;
+    border-right: 1px solid black;
+    height: 100vh;
+    background-color: #1E1F26;
+}
+
+.flexContainer {
+    width: 12%;
+    padding: 20px;
+}
+
+.contentContainer {
+    width: 85%;
+}
+
+.logo {
+    width: 80%;
+    padding: 20px 0px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.option {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0px;
+    color: white;
+    cursor: pointer;
+}
+
+.activeOption {
+    color: #fff;
+    background-color: #333;
+    font-weight: bold;
+    border-radius: 20px;
+}

@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10%;
+    justify-content: center;
+}
+
+.messageBox {
+    background-color: #1E1F26;
+    border-radius: 20px;
+    color: white;
+    word-break: break-all;
+    padding: 30px;
+    width: 300px;
+    margin: 30px;
+}
+
+.messageBox:hover {
+    background-color: #444857;
+}

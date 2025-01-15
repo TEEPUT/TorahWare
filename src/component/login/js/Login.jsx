@@ -39,10 +39,13 @@ export default function Login({ onLogin }) {
             if (response.status === 200) {
                 const token = response.data.token;
                 const message = isSignUp ? response.data.msg : response.data.msg;
+                const result = response.data.result
                 alert(message);
                 if (!isSignUp) {
-                    localStorage.setItem('username', token);
-                    navigate('/');
+                    if(result === true){
+                        localStorage.setItem('username', token);
+                        navigate('/');
+                    }
                 } else {
                     setIsSignUp(false); 
                 }
